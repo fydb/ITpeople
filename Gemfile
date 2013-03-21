@@ -38,6 +38,29 @@ gem "recaptcha", :require => "recaptcha/rails"
 gem 'bootstrap-sass', '~> 2.2.2.0'
 gem 'bourbon', '>= 2.1.2'
 
+group :test, :development do
+  gem 'factory_girl_rails', '>= 4.1.0'
+  gem 'capybara', '>= 2.0.1'
+  gem 'guard-rspec', '>= 2.3.0'
+  gem 'rspec-rails', '>= 2.12.0'
+  gem 'shoulda-matchers', '>= 1.4.2'
+  gem 'spork', '>= 0.9.2'
+  gem 'guard-spork', '>= 1.4.0'
+  gem 'launchy', '>= 2.1.2'
+  gem 'pry-remote', '>= 0.1.6'
+  gem 'pry-rails', '>= 0.2.2'
+  gem 'pry-stack_explorer', '>= 0.4.7'
+  gem 'pry-debugger', '>= 0.2.0'
+  gem 'simplecov', '>= 0.7.1', :require => false
+end
+
+group :development do
+  gem 'rails_best_practices', '>= 1.13.1'
+  gem 'brakeman', '>= 1.8.2'
+  gem 'letter_opener', '>= 1.0.0'
+  gem 'bullet', '>= 4.2.0'
+  gem 'rack-mini-profiler', '>= 0.1.23'
+end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

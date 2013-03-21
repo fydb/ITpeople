@@ -1,4 +1,12 @@
 ITpeople::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+
+  devise_for :users
+
+  get "page/index"
+
+  get "page/show"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
