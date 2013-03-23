@@ -1,0 +1,16 @@
+<%# cache "default_menu" do %>
+	<ul class="nav">
+		<% @pages.each do |page, form| %>
+			<li class="<%= 'active' if @page && @page == page %>">
+				<% if page == @homepage %>
+					<%= link_to page.name, "/", :title => page.name, :id => page.name %>
+				<% else if page.redirect %>
+					<%= link_to page.name, :controller => page.controller_name %>
+				<% else %>
+					<%= link_to page.name, "/#{page.permalink}/", :title => page.name, :id => page.name %>
+				<% end %>
+			<% end %>
+			<% end %>
+		</li>
+	</ul>
+<%# end %>

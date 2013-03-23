@@ -1,11 +1,32 @@
 ITpeople::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
-  devise_for :users
+  mount ContactForm::Engine => "/contact_form", :as => :contact_form
 
-  get "page/index"
+  devise_for :users, path: "admin", path_names: {sign_in: "login", sign_out: "logout"}
 
-  get "page/show"
+  
+  namespace :admin do
+    resources :users,   :except => [:show]
+    resources :uploads, :except => [:show, :edit, :update]
+    resources :menus,   :except => [:show] do
+       post :page_sort, :on => :collection
+    end
+    
+    get "settings/homepage"       => "settings#homepage",      :as => :settings
+    post "settings/homepage-save" => "settings#homepage_save", :as => :homepage_save
+     
+    resources :pages do
+       get   "sitemap",       :on => :collection, :as => :sitemap
+       get   "clear_cache",   :on => :collection, :as => :clear_cache
+    end
+  end
+
+  get ":permalink" => "pages#show", :as => :permalink
+  root :to => "pages#index"
+
+  get ':controller/:action/:id'
+  match ':controller(/:action(/:id(.:format)))'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
