@@ -1,7 +1,7 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require bootstrap
-//= require jquery.dataTables.min
+//= require ckeditor/init
 //= require jasny_fileupload
 
 $(document).ready(function() {
