@@ -33,10 +33,15 @@ gem "modernizr"
 gem "active_attr", "~> 0.7.0"
 gem "contact_form"
 gem "recaptcha", :require => "recaptcha/rails"
+gem "heroku", "~> 2.35.0"
 
 # Javascript Libraries for better / easier update
 gem 'bootstrap-sass', '~> 2.2.2.0'
 gem 'bourbon', '>= 2.1.2'
+
+group :production do
+  gem 'pg'
+end
 
 group :test, :development do
   gem 'factory_girl_rails', '>= 4.1.0'
